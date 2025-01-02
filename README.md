@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## テーブル設計
 
-Things you may want to cover:
+### Usersテーブル
 
-* Ruby version
+| Column             | Type    | Options                   |
+|--------------------|---------|---------------------------|
+| nickname           | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| hourly_rate        | integer | null: false               |
+| total_income       | integer | default: 0                |
 
-* System dependencies
+#### Association
+- has_many :recordings
 
-* Configuration
+---
 
-* Database creation
+### Recordingsテーブル
 
-* Database initialization
+| Column         | Type       | Options                        |
+|----------------|------------|--------------------------------|
+| amount         | integer    | null: false                    |
+| recorded_date  | date       | null: false                    |
+| user           | references | null: false, foreign_key: true |
+| created_at     | datetime   | null: false                    |
+| updated_at     | datetime   | null: false                    |
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Association
+- belongs_to :user
