@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>SetsuyakuIncome</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="節約を収入として可視化するアプリ">
+    <meta name="author" content="SetsuyakuIncome Developer">
+    <title>節約は収入</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- CSS -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    
+    <!-- JavaScript -->
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class="header-container">
+        <h1 class="logo"><div class="logo">節約は収入</div>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <%= yield %>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <p>&copy; <%= Date.today.year %> 節約は収入. All Rights Reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
