@@ -19,7 +19,16 @@
   <body>
     <header>
       <div class="header-container">
-        <h1 class="logo"><div class="logo">節約は収入</div>
+        <h1 class="logo"><a href="<%= root_path %>">節約は収入</a></h1>
+        <nav class="nav-links">
+          <% if user_signed_in? %>
+            <span>こんにちは、<%= current_user.nickname %>さん！</span>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-logout" %>
+          <% else %>
+            <%= link_to "新規登録", new_user_registration_path, class: "btn-primary" %>
+            <%= link_to "ログイン", new_user_session_path, class: "btn-primary" %>
+          <% end %>
+        </nav>
       </div>
     </header>
 

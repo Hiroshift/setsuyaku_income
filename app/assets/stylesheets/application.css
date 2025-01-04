@@ -1,208 +1,260 @@
 /* Reset CSS */
+/* すべての要素のボックスサイズをボーダー内に収め、余白をリセット */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* 基本のbodyスタイル設定 */
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #f8f9fa;
-  color: #212529;
-  line-height: 1.6;
+  font-family: "Roboto", sans-serif; /* 読みやすいフォントを設定 */
+  background-color: #f8f9fa; /* 背景色を薄いグレーに設定 */
+  color: #212529; /* 文字色を濃いグレーに設定 */
+  line-height: 1.6; /* 行間を広げて読みやすくする */
 }
 
 /* Header (共通) */
-header {
-  background-color: #2263dd; /* 落ち着いた青色 */
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ヘッダー全体のスタイルを設定 */
+.header-container {
+  background-color: #2263dd; /* 明るい青色の背景 */
+  height: 60px; /* ヘッダーの高さを60pxに設定 */
+  display: flex; /* フレックスボックスでレイアウト */
+  align-items: center; /* 縦方向に中央寄せ */
+  justify-content: space-around; /* ロゴとリンクを左右に配置 */
+  padding: 0 20px; /* 左右に20pxの余白を追加 */
 }
 
-/* ヘッダー内のロゴやタイトルのスタイル (共通) */
-header .logo {
-  font-size: 24px;
-  color: #ffffff; /* 白色でコントラストを高める */
-  font-weight: bold;
-  text-decoration: none;
+/* ヘッダー内のロゴやタイトルのスタイル */
+.logo a {
+  font-size: 24px; /* ロゴの文字サイズを24pxに設定 */
+  color: #ffffff; /* ロゴ文字を白色に設定 */
+  font-weight: bold; /* 太字に設定 */
+  text-decoration: none; /* テキストの下線を除去 */
+}
+
+/* ナビゲーションリンクのスタイル */
+/* ログイン状態に応じて表示されるリンク（新規登録、ログイン、ログアウト）のデザイン */
+.nav-links {
+  display: flex; /* フレックスボックスでレイアウト */
+  gap: 15px; /* 各リンク間に15pxのスペースを追加 */
+  align-items: center; /* 縦方向に中央寄せ */
+}
+
+.nav-links a {
+  color: #ffffff; /* リンク文字色を白色に設定 */
+  text-decoration: none; /* 下線を除去 */
+  padding: 5px 10px; /* 内側の余白を設定 */
+  border-radius: 5px; /* ボタンの角を丸くする */
+  background-color: #007bff; /* リンクの背景色を青色に設定 */
+  font-size: 0.9rem; /* フォントサイズを少し小さめに設定 */
+}
+
+.nav-links a:hover {
+  background-color: #0056b3; /* ホバー時の背景色を濃い青色に設定 */
+}
+
+.nav-links .btn-logout {
+  background-color: #e62c3c; /* ログアウトボタン専用の赤色 */
+}
+
+.nav-links .btn-logout:hover {
+  background-color: #c82333; /* ホバー時の背景色を濃い赤色に設定 */
 }
 
 /* General Container (共通) */
+/* 画面全体の中央寄せと幅を制限 */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 1200px; /* 最大幅を1200pxに設定 */
+  margin: 0 auto; /* 中央寄せ */
+  padding: 20px; /* 内側の余白を設定 */
 }
 
 /* 共通フォームスタイル */
+/* すべてのフォームの背景や枠を統一 */
 form {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #ffffff; /* 背景色を白に設定 */
+  padding: 20px; /* 内側の余白を設定 */
+  border-radius: 5px; /* フォームの角を丸くする */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
 }
 
+/* フォーム内の各グループスタイル */
 form .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* 下に余白を設定 */
 }
 
+/* フォーム内のラベルスタイル */
 form .form-group label {
-  display: inline;
-  margin-bottom: 5px;
-  font-weight: bold;
+  display: inline-block; /* ラベルをブロック要素にする */
+  margin-bottom: 5px; /* 下に少し余白を設定 */
+  font-weight: bold; /* ラベルを太字に設定 */
 }
 
+/* 入力フィールドとセレクトボックスのスタイル */
 form .form-group input,
 form .form-group select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-  font-size: 1rem;
+  width: 100%; /* 幅をフォーム全体に広げる */
+  padding: 12px; /* 内側に余白を設定 */
+  border: 1px solid #ced4da; /* 枠線を薄いグレーに設定 */
+  border-radius: 5px; /* 角を丸くする */
+  font-size: 1rem; /* フォントサイズを統一 */
 }
 
+/* フォーム内の補足説明のスタイル */
 form .form-group small {
-  display: block;
-  margin-top: 5px;
-  font-size: 0.9rem;
-  color: #6c757d;
+  display: block; /* 補足説明をブロック要素にする */
+  margin-top: 5px; /* 上に少し余白を設定 */
+  font-size: 0.9rem; /* フォントサイズを小さくする */
+  color: #6c757d; /* 薄いグレーの文字色 */
 }
 
+/* フォーム内の送信ボタンのスタイル */
 form .form-group button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
+  width: 100%; /* ボタンをフォーム全体に広げる */
+  padding: 12px; /* 内側に余白を設定 */
+  border: none; /* 枠線を除去 */
+  border-radius: 5px; /* ボタンの角を丸くする */
+  background-color: #007bff; /* 青色の背景 */
+  color: #ffffff; /* ボタン文字を白色に設定 */
+  font-size: 1rem; /* フォントサイズを統一 */
+  font-weight: bold; /* 太字に設定 */
+  cursor: pointer; /* ポインタを表示 */
 }
 
 form .form-group button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* ホバー時に濃い青色に変更 */
 }
 
 /* サインアップページのスタイル */
 .signup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #e9ecef;
+  display: flex; /* フレックスボックスでレイアウト */
+  justify-content: center; /* 横方向に中央寄せ */
+  align-items: center; /* 縦方向に中央寄せ */
+  height: 100vh; /* 画面全体を占める高さに設定 */
+  background-color: #e9ecef; /* 薄いグレーの背景 */
 }
 
 /* ログインページのスタイル */
 .login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #e9ecef;
+  display: flex; /* フレックスボックスでレイアウト */
+  justify-content: center; /* 横方向に中央寄せ */
+  align-items: center; /* 縦方向に中央寄せ */
+  height: 100vh; /* 画面全体を占める高さに設定 */
+  background-color: #e9ecef; /* 薄いグレーの背景 */
 }
 
 /* ホームページのスタイル */
-.home {
-  padding: 20px;
-  text-align: center;
+.home-container {
+  padding: 20px; /* 内側の余白を設定 */
+  text-align: center; /* テキストを中央寄せ */
 }
 
-.home .income-display {
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.home-container .income-display {
+  background-color: #ffffff; /* 背景色を白に設定 */
+  padding: 15px; /* 内側の余白を設定 */
+  border-radius: 5px; /* 角を丸くする */
+  margin-bottom: 20px; /* 下に余白を追加 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
 }
 
-.home .income-display h2 {
-  margin-bottom: 10px;
-  font-size: 1.5rem;
+.home-container .income-display h2 {
+  margin-bottom: 10px; /* 下に余白を追加 */
+  font-size: 1.5rem; /* 見出しを大きく設定 */
+}
+
+/* 新しい収入記録フォームのスタイル */
+.new-income-form {
+  margin-top: 20px; /* 上に余白を追加 */
 }
 
 /* 設定ページのスタイル */
 .settings {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  display: flex; /* フレックスボックスでレイアウト */
+  justify-content: center; /* 横方向に中央寄せ */
+  align-items: center; /* 縦方向に中央寄せ */
+  height: 100vh; /* 画面全体を占める高さに設定 */
 }
 
 .settings-form {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+  background: #ffffff; /* 背景色を白に設定 */
+  padding: 20px; /* 内側の余白を設定 */
+  border-radius: 5px; /* 角を丸くする */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
+  width: 100%; /* 幅を100%に設定 */
+  max-width: 400px; /* 最大幅を400pxに制限 */
 }
 
 .settings-form h2 {
-  margin-bottom: 15px;
-  font-size: 1.5rem;
+  margin-bottom: 15px; /* 下に余白を追加 */
+  font-size: 1.5rem; /* 見出しを大きく設定 */
 }
 
 /* 404エラーページのスタイル */
 .error-404 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f8f9fa;
-  text-align: center;
+  display: flex; /* フレックスボックスでレイアウト */
+  justify-content: center; /* 横方向に中央寄せ */
+  align-items: center; /* 縦方向に中央寄せ */
+  height: 100vh; /* 画面全体を占める高さに設定 */
+  background-color: #f8f9fa; /* 背景色を薄いグレーに設定 */
+  text-align: center; /* テキストを中央寄せ */
 }
 
 .error-404 h1 {
-  font-size: 3rem;
-  color: #6c757d;
+  font-size: 3rem; /* 見出しを大きく設定 */
+  color: #6c757d; /* 薄いグレーの文字色 */
 }
 
 .error-404 p {
-  font-size: 1.2rem;
-  color: #6c757d;
+  font-size: 1.2rem; /* テキストを少し大きく設定 */
+  color: #6c757d; /* 薄いグレーの文字色 */
 }
 
 /* Responsive Design (レスポンシブ対応) */
 @media (max-width: 768px) {
+  /* 全体のフォントサイズを少し小さくする */
   body {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* 通常より少し小さいフォントサイズに変更 */
   }
 
+  /* コンテナ全体の余白を減らして、モバイルでの表示を調整 */
   .container {
-    padding: 10px;
+    padding: 10px; /* コンテナ内の余白を減らす */
   }
 
+  /* フォームの送信ボタンのフォントサイズを小さくする */
   form .form-group button {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* モバイルに合わせた小さなボタン文字サイズ */
   }
 
+  /* 設定フォームの幅を調整してモバイル画面にフィットさせる */
   .settings-form {
-    width: 100%;
-    max-width: 300px;
+    width: 100%; /* 親要素の幅に合わせる */
+    max-width: 300px; /* 最大幅を300pxに制限 */
   }
 }
 
 /* Railsが自動的に追加するfield_with_errorsのスタイルをリセット */
+/* Railsがエラーフィールドに追加するクラスのデフォルトスタイルをリセット */
 .field_with_errors {
   display: inline; /* 必要であれば他のスタイルもリセット */
   margin: 0; /* 必要に応じて調整 */
   padding: 0;
   border: none; /* ボーダーが追加されている場合はリセット */
 }
+
 /* エラーメッセージスタイル */
+/* フォームのエラーメッセージ用のデザイン */
 .error-alert {
-  color: #e62c3c;
-  border: 1px solid #f5c2c7;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+  color: #e62c3c; /* 赤色の文字 */
+  border: 1px solid #f5c2c7; /* 薄い赤色の枠線 */
+  padding: 10px; /* 内側の余白を設定 */
+  margin-bottom: 15px; /* 下に余白を追加 */
+  border-radius: 5px; /* 角を丸くする */
 }
 
 .error-message {
-  list-style: none;
-  font-size: 0.9rem;
-  margin: 5px 0;
+  list-style: none; /* リストの箇条書きを除去 */
+  font-size: 0.9rem; /* 小さめのフォントサイズ */
+  margin: 5px 0; /* 上下に余白を設定 */
 }
