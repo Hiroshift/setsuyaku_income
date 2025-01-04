@@ -12,16 +12,16 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
+/* Header (共通) */
 header {
-  background-color: #1c3667; /* 落ち着いた青色 */
+  background-color: #2263dd; /* 落ち着いた青色 */
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* ヘッダー内のロゴやタイトルのスタイル */
+/* ヘッダー内のロゴやタイトルのスタイル (共通) */
 header .logo {
   font-size: 24px;
   color: #ffffff; /* 白色でコントラストを高める */
@@ -29,14 +29,14 @@ header .logo {
   text-decoration: none;
 }
 
-/* General Container */
+/* General Container (共通) */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Forms */
+/* 共通フォームスタイル */
 form {
   background: #ffffff;
   padding: 20px;
@@ -45,31 +45,40 @@ form {
 }
 
 form .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 form .form-group label {
-  display: block;
+  display: inline;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-form .form-group input {
+form .form-group input,
+form .form-group select {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ced4da;
   border-radius: 5px;
   font-size: 1rem;
 }
 
+form .form-group small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
 form .form-group button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 5px;
   background-color: #007bff;
   color: #ffffff;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -77,8 +86,8 @@ form .form-group button:hover {
   background-color: #0056b3;
 }
 
-/* Sign-up & Login Pages */
-.signup, .login {
+/* サインアップページのスタイル */
+.signup {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,7 +95,16 @@ form .form-group button:hover {
   background-color: #e9ecef;
 }
 
-/* Home Page */
+/* ログインページのスタイル */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e9ecef;
+}
+
+/* ホームページのスタイル */
 .home {
   padding: 20px;
   text-align: center;
@@ -105,7 +123,7 @@ form .form-group button:hover {
   font-size: 1.5rem;
 }
 
-/* Settings Page */
+/* 設定ページのスタイル */
 .settings {
   display: flex;
   justify-content: center;
@@ -127,7 +145,27 @@ form .form-group button:hover {
   font-size: 1.5rem;
 }
 
-/* Responsive Design */
+/* 404エラーページのスタイル */
+.error-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.error-404 h1 {
+  font-size: 3rem;
+  color: #6c757d;
+}
+
+.error-404 p {
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+/* Responsive Design (レスポンシブ対応) */
 @media (max-width: 768px) {
   body {
     font-size: 0.9rem;
@@ -140,4 +178,31 @@ form .form-group button:hover {
   form .form-group button {
     font-size: 0.9rem;
   }
+
+  .settings-form {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Railsが自動的に追加するfield_with_errorsのスタイルをリセット */
+.field_with_errors {
+  display: inline; /* 必要であれば他のスタイルもリセット */
+  margin: 0; /* 必要に応じて調整 */
+  padding: 0;
+  border: none; /* ボーダーが追加されている場合はリセット */
+}
+/* エラーメッセージスタイル */
+.error-alert {
+  color: #e62c3c;
+  border: 1px solid #f5c2c7;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.error-message {
+  list-style: none;
+  font-size: 0.9rem;
+  margin: 5px 0;
 }

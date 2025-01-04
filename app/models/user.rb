@@ -3,4 +3,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :recordings
+
+  validates :nickname, presence: true, length: { maximum: 50 }
+  validates :hourly_rate, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :password, format: { 
+    with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, 
+    message: 'is invalid. Include both letters and numbers' 
+  }
 end
