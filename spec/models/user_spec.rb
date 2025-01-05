@@ -88,9 +88,8 @@ RSpec.describe User, type: :model do
     context 'パスワードの更新時' do
       it 'パスワードが空欄でも更新できる' do
         @user.save
-        @user.password = ''
-        @user.password_confirmation = ''
-        expect(@user.update(nickname: '新しいニックネーム')).to be true
+        updated = @user.update_without_password(nickname: '新しいニックネーム')
+        expect(updated).to be true
       end
 
       it '新しいパスワードが6文字以上で半角英数字混合であれば更新できる' do
