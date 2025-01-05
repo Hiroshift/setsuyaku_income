@@ -21,18 +21,25 @@
       <div class="header-container">
         <h1 class="logo"><a href="<%= root_path %>">節約は収入</a></h1>
         <nav class="nav-links">
-          <% if user_signed_in? && controller.controller_name != 'registrations' && action_name != 'edit' %>
+          <% if user_signed_in? %>
             <span>こんにちは、<%= current_user.nickname %>さん！</span>
-            <!-- プロフィール編集リンクを追加 -->
-            <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn-secondary" %>
+            <% unless controller_name == "registrations" && action_name == "edit" %>
+              <!-- プロフィール編集リンク -->
+              <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn-secondary" %>
+            <% end %>
             <!-- ログアウトリンク -->
             <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-logout" %>
-          <% elsif user_signed_in? %>
-            <!-- ログアウトリンクのみ表示 -->
-            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-logout" %>
           <% else %>
-            <%= link_to "新規登録", new_user_registration_path, class: "btn-primary" %>
-            <%= link_to "ログイン", new_user_session_path, class: "btn-primary" %>
+            <% if controller_name == "registrations" && action_name == "new" %>
+              <!-- サインアップ画面ではログインボタンを非表示 -->
+            <% elsif controller_name == "sessions" && action_name == "new" %>
+              <!-- ログイン画面では新規登録リンクのみ表示 -->
+              <%= link_to "新規登録", new_user_registration_path, class: "btn-primary" %>
+            <% else %>
+              <!-- 非ログイン状態で通常のリンク表示 -->
+              <%= link_to "新規登録", new_user_registration_path, class: "btn-primary" %>
+              <%= link_to "ログイン", new_user_session_path, class: "btn-primary" %>
+            <% end %>
           <% end %>
         </nav>
       </div>

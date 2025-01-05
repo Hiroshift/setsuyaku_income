@@ -31,3 +31,9 @@
     <%= f.submit "変更を保存", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<!-- キャンセルの誘導文とボタン -->
+<div class="cancel-container">
+  <p>編集をキャンセルする場合はこちら：</p>
+  <%= link_to "ホームに戻る", root_path, class: "btn btn-secondary" %>
+</div>

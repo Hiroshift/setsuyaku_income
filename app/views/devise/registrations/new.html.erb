@@ -34,5 +34,9 @@
         <%= f.submit "サインアップ", class: "btn btn-primary btn-block" %>
       </div>
     <% end %>
+
+    <div class="login-link">
+      <p>すでにアカウントをお持ちですか？ <%= link_to "ログインはこちら", new_user_session_path %></p>
+    </div>
   </div>
 </div>
