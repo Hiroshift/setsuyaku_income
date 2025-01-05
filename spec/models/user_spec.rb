@@ -81,7 +81,7 @@ RSpec.describe User, type: :model do
       it 'hourly_rateが負の値では登録できない' do
         @user.hourly_rate = -1
         @user.valid?
-        expect(@user.errors.full_messages).to include("Hourly rate must be greater than or equal to 0")
+        expect(@user.errors.full_messages).to include('Hourly rate must be greater than or equal to 0')
       end
     end
 
