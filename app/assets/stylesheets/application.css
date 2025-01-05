@@ -55,7 +55,7 @@ body {
 }
 
 .nav-links .btn-logout {
-  background-color: #e62c3c; /* ログアウトボタン専用の赤色 */
+  background-color: #007bff; /* ログアウトボタン専用の赤色 */
 }
 
 .nav-links .btn-logout:hover {
@@ -257,4 +257,18 @@ form .form-group button:hover {
   list-style: none; /* リストの箇条書きを除去 */
   font-size: 0.9rem; /* 小さめのフォントサイズ */
   margin: 5px 0; /* 上下に余白を設定 */
+}
+
+/* プロフィール編集ページ */
+.nav-links .btn-secondary {
+  background-color: #007bff; /* 背景色を黄色に設定 */
+  color: #ffffff; /* 文字色を濃いグレーに設定 */
+  text-decoration: none; /* 下線を除去 */
+  padding: 5px 10px; /* 内側の余白を設定 */
+  border-radius: 5px; /* ボタンの角を丸くする */
+  font-size: 0.9rem; /* フォントサイズを統一 */
+}
+
+.nav-links .btn-secondary:hover {
+  background-color: #007bff; /* ホバー時の背景色を濃い黄色に変更 */
 }

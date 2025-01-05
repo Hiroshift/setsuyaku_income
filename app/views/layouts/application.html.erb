@@ -21,8 +21,14 @@
       <div class="header-container">
         <h1 class="logo"><a href="<%= root_path %>">節約は収入</a></h1>
         <nav class="nav-links">
-          <% if user_signed_in? %>
+          <% if user_signed_in? && controller.controller_name != 'registrations' && action_name != 'edit' %>
             <span>こんにちは、<%= current_user.nickname %>さん！</span>
+            <!-- プロフィール編集リンクを追加 -->
+            <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn-secondary" %>
+            <!-- ログアウトリンク -->
+            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-logout" %>
+          <% elsif user_signed_in? %>
+            <!-- ログアウトリンクのみ表示 -->
             <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn-logout" %>
           <% else %>
             <%= link_to "新規登録", new_user_registration_path, class: "btn-primary" %>
