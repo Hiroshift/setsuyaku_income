@@ -45,6 +45,15 @@
       </div>
     </header>
 
+    <!-- フラッシュメッセージを表示 -->
+    <div class="flash-messages">
+      <% flash.each do |key, message| %>
+        <div class="alert <%= key == 'notice' ? 'alert-success' : 'alert-danger' %>">
+          <%= message %>
+        </div>
+      <% end %>
+    </div>
+    
     <main class="main-container">
       <%= yield %>
     </main>
