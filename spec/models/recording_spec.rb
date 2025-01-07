@@ -28,8 +28,25 @@ RSpec.describe Recording, type: :model do
       it 'userが紐付いていない場合は保存できない' do
         @recording.user = nil
         expect(@recording).not_to be_valid
-        expect(@recording.errors.full_messages).to include("User must exist")
+        expect(@recording.errors.full_messages).to include('User must exist')
       end
+    end
+  end
+  describe '日付変更時のリセット機能' do
+    before do
+      @user = FactoryBot.create(:user) # ユーザーを作成
+    end
+
+    it '日付が変わった場合に今日の収入がリセットされる' do
+      FactoryBot.create(:recording, user: @user, amount: 500, recorded_date: Date.yesterday)
+      today_income = @user.recordings.where(recorded_date: Date.today).sum(:amount)
+      expect(today_income).to eq(0)
+    end
+
+    it '同じ日付の場合リセットされない' do
+      FactoryBot.create(:recording, user: @user, amount: 500, recorded_date: Date.today)
+      today_income = @user.recordings.where(recorded_date: Date.today).sum(:amount)
+      expect(today_income).to eq(500)
     end
   end
 end
