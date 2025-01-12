@@ -14,4 +14,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(_resource)
     root_path # ホーム画面に遷移
   end
+
+  # アカウント削除後のリダイレクト先を指定
+  def after_destroy_path_for(_resource)
+    root_path # ホーム画面に遷移
+  end
 end
