@@ -41,9 +41,15 @@
 <!-- アカウント削除ボタン -->
 <div class="delete-account-container">
   <p>アカウントを削除する場合はこちら：</p>
-  <%= button_to "アカウントを削除する", 
-  registration_path(resource), 
-  method: :delete, class: "btn btn-danger", 
-  data: { confirm: "本当にアカウントを削除しますか？" } %>
+  <button id="delete-account-btn" class="btn btn-danger">アカウントを削除する</button>
+</div>
+
+<!-- アカウント削除確認モーダル -->
+<div id="delete-confirm-modal" class="modal">
+  <div class="modal-content">
+    <p>本当にアカウントを削除しますか？</p>
+    <%= button_to "削除する", registration_path(resource), method: :delete, class: "btn btn-danger" %>
+    <button class="btn btn-secondary">キャンセル</button>
+  </div>
 </div>
 
