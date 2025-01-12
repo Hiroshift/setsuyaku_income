@@ -37,3 +37,13 @@
   <p>編集をキャンセルする場合はこちら：</p>
   <%= link_to "ホームに戻る", root_path, class: "btn btn-secondary" %>
 </div>
+
+<!-- アカウント削除ボタン -->
+<div class="delete-account-container">
+  <p>アカウントを削除する場合はこちら：</p>
+  <%= button_to "アカウントを削除する", 
+  registration_path(resource), 
+  method: :delete, class: "btn btn-danger", 
+  data: { confirm: "本当にアカウントを削除しますか？" } %>
+</div>
+
