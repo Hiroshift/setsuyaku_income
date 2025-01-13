@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :recordings
+  has_many :recordings, dependent: :destroy
 
   validates :nickname, presence: true, length: { maximum: 50 }
   validates :hourly_rate, presence: true, numericality: { greater_than_or_equal_to: 0 }

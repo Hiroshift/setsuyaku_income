@@ -125,3 +125,23 @@ RSpec.describe User, type: :model do
     end
   end
 end
+
+RSpec.describe User, type: :model do
+  before do
+    @user = FactoryBot.create(:user) # 実際にデータベースに保存されるユーザー
+  end
+
+  describe 'ユーザーの削除' do
+    context 'アカウント削除時' do
+      it 'ユーザーがデータベースから削除されること' do
+        expect { @user.destroy }.to change { User.count }.by(-1)
+      end
+
+      it '関連するrecordingsも削除されること' do
+        FactoryBot.create(:recording, user: @user) # ユーザーに紐付いたRecording
+        expect { @user.destroy }.to change { Recording.count }.by(-1)
+      end
+    end
+  end
+end
+
