@@ -1,10 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def destroy
     if current_user.destroy
-      flash[:notice] = "アカウントが削除されました。"
+      flash[:notice] = 'アカウントが削除されました。'
       redirect_to after_sign_out_path_for(:user)
     else
-      flash[:alert] = "アカウントの削除に失敗しました。もう一度お試しください。"
+      flash[:alert] = 'アカウントの削除に失敗しました。もう一度お試しください。'
       redirect_to edit_user_registration_path
     end
   end
